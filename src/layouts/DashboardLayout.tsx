@@ -29,18 +29,18 @@ const mobileMainNav = [
 ];
 
 const getPageLabel = (path: string): string => {
-  if (path === "/") return "Dashboard";
+  if (path === "/dashboard" || path === "/dashboard/") return "Dashboard";
   const match = Object.entries({
-    "/terminal": "Terminal",
-    "/spot": "Spot",
-    "/margin": "Margin",
-    "/copy-trading": "Copy Trading",
-    "/bot-trading": "Bot Trading",
-    "/stocks": "Stocks",
-    "/wallet": "Wallet",
-    "/notifications": "Notifications",
+    "/dashboard/terminal": "Terminal",
+    "/dashboard/spot": "Spot",
+    "/dashboard/margin": "Margin",
+    "/dashboard/copy-trading": "Copy Trading",
+    "/dashboard/bot-trading": "Bot Trading",
+    "/dashboard/stocks": "Stocks",
+    "/dashboard/wallet": "Wallet",
+    "/dashboard/notifications": "Notifications",
   }).find(([p]) => path === p || path.startsWith(p + "/"));
-  return match?.[1] ?? (path.startsWith("/settings") ? "Settings" : "NovaTrade");
+  return match?.[1] ?? (path.startsWith("/dashboard/settings") ? "Settings" : "NovaTrade");
 };
 
 const DashboardLayout = () => {
@@ -117,7 +117,7 @@ const DashboardLayout = () => {
         {/* Top bar */}
         <header className="h-16 border-b border-border/50 flex items-center justify-between gap-2 px-3 sm:px-4 lg:px-6 bg-background/80 backdrop-blur-xl sticky top-0 z-40 shrink-0">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-            <Link to="/" className="md:hidden flex items-center gap-2">
+            <Link to="/dashboard" className="md:hidden flex items-center gap-2">
               <div className="h-7 w-7 rounded-lg bg-primary/20 flex items-center justify-center">
                 <div className="h-3.5 w-3.5 rounded-sm bg-primary" />
               </div>
