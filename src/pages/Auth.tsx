@@ -16,7 +16,7 @@ const Auth = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     localStorage.setItem("nova-demo-auth", "true");
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (
