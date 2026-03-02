@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   LayoutDashboard, BarChart3, ArrowLeftRight, Users, Bot,
   TrendingUp, Bell, Wallet, Settings, LogOut, ChevronLeft, ChevronRight, Search, MoreHorizontal,
@@ -49,11 +49,11 @@ const DashboardLayout = () => {
   const location = useLocation();
 
   const isActive = (path: string) => {
-    if (path === "/") return location.pathname === "/";
+    if (path === "/dashboard") return location.pathname === "/dashboard" || location.pathname === "/dashboard/";
     return location.pathname.startsWith(path);
   };
 
-  const isMoreActive = isActive("/copy-trading") || isActive("/bot-trading") || isActive("/settings") || isActive("/stocks") || isActive("/notifications") || isActive("/margin");
+  const isMoreActive = isActive("/dashboard/copy-trading") || isActive("/dashboard/bot-trading") || isActive("/dashboard/settings") || isActive("/dashboard/stocks") || isActive("/dashboard/notifications") || isActive("/dashboard/margin");
 
   return (
     <div className="min-h-screen bg-background flex overflow-x-hidden max-w-[100vw] w-full">
@@ -65,7 +65,7 @@ const DashboardLayout = () => {
       >
         {/* Logo */}
         <div className="h-16 flex items-center px-4 border-b border-border/50">
-          <Link to="/" className="flex items-center gap-2 overflow-hidden">
+          <Link to="/dashboard" className="flex items-center gap-2 overflow-hidden">
             <div className="h-8 w-8 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
               <div className="h-4 w-4 rounded-sm bg-primary" />
             </div>
@@ -153,19 +153,9 @@ const DashboardLayout = () => {
           </div>
         </header>
 
-        {/* Content with page transitions */}
+        {/* Content area - no AnimatePresence to avoid overlap of exiting/entering pages */}
         <main className="flex-1 p-4 lg:p-6 pb-20 md:pb-6 min-w-0 overflow-x-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={location.pathname}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            >
-              <Outlet />
-            </motion.div>
-          </AnimatePresence>
+          <Outlet />
         </main>
 
         {/* Mobile bottom nav — app-style dock */}
