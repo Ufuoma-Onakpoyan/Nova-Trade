@@ -28,7 +28,7 @@ const Auth = () => {
         <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] rounded-full bg-chart-4/5 blur-[100px]" />
 
         <div className="relative z-10 flex flex-col justify-center px-16">
-          <Link to="/welcome" className="flex items-center gap-2 mb-12">
+          <Link to="/" className="flex items-center gap-2 mb-12">
             <div className="h-8 w-8 rounded-lg bg-primary/20 flex items-center justify-center">
               <div className="h-4 w-4 rounded-sm bg-primary" />
             </div>
@@ -87,7 +87,7 @@ const Auth = () => {
       <div className="w-full min-w-0 lg:w-1/2 flex items-center justify-center p-4 sm:p-6 bg-background relative">
         <div className="absolute top-4 left-4">
           <Button variant="ghost" size="sm" asChild>
-            <Link to="/welcome">
+            <Link to="/">
               <ArrowLeft className="h-4 w-4 mr-1" /> Back
             </Link>
           </Button>

@@ -44,6 +44,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
+          <Route path="/" element={<Index />} />
           <Route path="/welcome" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
           <Route element={<PublicLayout />}>
@@ -55,17 +56,17 @@ const App = () => (
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/contact" element={<Contact />} />
           </Route>
-          <Route element={<DashboardLayout />}>
-            <Route path="/" element={<DashboardHome />} />
-            <Route path="/terminal" element={<TradingTerminal />} />
-            <Route path="/spot" element={<SpotTrading />} />
-            <Route path="/margin" element={<MarginTrading />} />
-            <Route path="/copy-trading" element={<CopyTrading />} />
-            <Route path="/bot-trading" element={<BotTrading />} />
-            <Route path="/stocks" element={<StocksTrading />} />
-            <Route path="/wallet" element={<Wallet />} />
-            <Route path="/notifications" element={<Notifications />} />
-            <Route path="/settings" element={<Settings />}>
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route index element={<DashboardHome />} />
+            <Route path="terminal" element={<TradingTerminal />} />
+            <Route path="spot" element={<SpotTrading />} />
+            <Route path="margin" element={<MarginTrading />} />
+            <Route path="copy-trading" element={<CopyTrading />} />
+            <Route path="bot-trading" element={<BotTrading />} />
+            <Route path="stocks" element={<StocksTrading />} />
+            <Route path="wallet" element={<Wallet />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="settings" element={<Settings />}>
               <Route path="profile" element={<ProfileSettings />} />
               <Route path="security" element={<SecuritySettings />} />
               <Route path="notifications" element={<NotificationSettings />} />

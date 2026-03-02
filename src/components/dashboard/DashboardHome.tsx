@@ -11,10 +11,10 @@ const sparklineData = generateSparkline(24, 1);
 const COLORS = ["hsl(43, 96%, 56%)", "hsl(30, 80%, 40%)", "hsl(142, 76%, 46%)", "hsl(38, 92%, 50%)"];
 
 const quickActions = [
-  { label: "Deposit", icon: Wallet, color: "from-success/20 to-success/5", path: "/wallet" },
-  { label: "Withdraw", icon: ArrowUpRight, color: "from-warning/20 to-warning/5", path: "/wallet" },
-  { label: "Trade", icon: ArrowLeftRight, color: "from-primary/20 to-primary/5", path: "/terminal" },
-  { label: "Copy", icon: Users, color: "from-chart-4/20 to-chart-4/5", path: "/copy-trading" },
+  { label: "Deposit", icon: Wallet, color: "from-success/20 to-success/5", path: "/dashboard/wallet" },
+  { label: "Withdraw", icon: ArrowUpRight, color: "from-warning/20 to-warning/5", path: "/dashboard/wallet" },
+  { label: "Trade", icon: ArrowLeftRight, color: "from-primary/20 to-primary/5", path: "/dashboard/terminal" },
+  { label: "Copy", icon: Users, color: "from-chart-4/20 to-chart-4/5", path: "/dashboard/copy-trading" },
 ];
 
 export function DashboardHome() {
@@ -139,11 +139,11 @@ export function DashboardHome() {
             <TrendingUp className="h-4 w-4 text-primary" />
             <h3 className="text-sm font-semibold">Stock Market Movers</h3>
           </div>
-          <Link to="/stocks" className="text-xs text-primary hover:underline">View All</Link>
+          <Link to="/dashboard/stocks" className="text-xs text-primary hover:underline">View All</Link>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {liveStocks.map((stock) => (
-            <Link to="/stocks" key={stock.symbol} className="bg-muted/20 rounded-xl p-3 hover:bg-muted/40 transition-colors">
+            <Link to="/dashboard/stocks" key={stock.symbol} className="bg-muted/20 rounded-xl p-3 hover:bg-muted/40 transition-colors">
               <div className="flex items-center justify-between mb-1">
                 <span className="text-xs font-bold">{stock.symbol}</span>
                 <span className={`text-[10px] font-mono-num ${stock.liveChange >= 0 ? "price-up" : "price-down"}`}>
@@ -168,12 +168,12 @@ export function DashboardHome() {
         >
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-semibold">Your Assets</h3>
-            <Link to="/spot" className="text-xs text-primary hover:underline">View All</Link>
+            <Link to="/dashboard/spot" className="text-xs text-primary hover:underline">View All</Link>
           </div>
           <div className="space-y-3">
             {portfolioData.assets.filter(a => a.symbol !== "MISC").map((asset) => (
               <Link
-                to="/spot"
+                to="/dashboard/spot"
                 key={asset.symbol}
                 className="flex items-center justify-between py-2 border-b border-border/30 last:border-0 hover:bg-muted/20 -mx-2 px-2 rounded-lg transition-colors"
               >
@@ -205,7 +205,7 @@ export function DashboardHome() {
         >
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-semibold">Recent Activity</h3>
-            <Link to="/terminal" className="text-xs text-primary hover:underline">View All</Link>
+            <Link to="/dashboard/terminal" className="text-xs text-primary hover:underline">View All</Link>
           </div>
           <div className="space-y-3">
             {activityFeed.map((item) => (

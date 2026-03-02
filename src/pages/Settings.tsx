@@ -4,13 +4,13 @@ import { Settings, User, Shield, Bell, CreditCard, Key, HelpCircle, FileText, Ch
 import { Button } from "@/components/ui/button";
 
 const settingsSections = [
-  { icon: User, label: "Profile", path: "/settings/profile", description: "Manage your personal information" },
-  { icon: Shield, label: "Security", path: "/settings/security", description: "Two-factor authentication, password" },
-  { icon: Bell, label: "Notifications", path: "/settings/notifications", description: "Email and push notification preferences" },
-  { icon: CreditCard, label: "Payment Methods", path: "/settings/payment", description: "Manage deposit and withdrawal methods" },
-  { icon: Key, label: "API Keys", path: "/settings/api-keys", description: "Create and manage API access keys" },
-  { icon: HelpCircle, label: "Help & Support", path: "/settings/help", description: "FAQ, contact support, documentation" },
-  { icon: FileText, label: "Legal", path: "/settings/legal", description: "Terms of service, privacy policy" },
+  { icon: User, label: "Profile", path: "/dashboard/settings/profile", description: "Manage your personal information" },
+  { icon: Shield, label: "Security", path: "/dashboard/settings/security", description: "Two-factor authentication, password" },
+  { icon: Bell, label: "Notifications", path: "/dashboard/settings/notifications", description: "Email and push notification preferences" },
+  { icon: CreditCard, label: "Payment Methods", path: "/dashboard/settings/payment", description: "Manage deposit and withdrawal methods" },
+  { icon: Key, label: "API Keys", path: "/dashboard/settings/api-keys", description: "Create and manage API access keys" },
+  { icon: HelpCircle, label: "Help & Support", path: "/dashboard/settings/help", description: "FAQ, contact support, documentation" },
+  { icon: FileText, label: "Legal", path: "/dashboard/settings/legal", description: "Terms of service, privacy policy" },
 ];
 
 const SettingsIndex = () => (
@@ -55,13 +55,13 @@ const SettingsIndex = () => (
 
 const SettingsPage = () => {
   const location = useLocation();
-  const isIndex = location.pathname === "/settings";
+  const isIndex = location.pathname === "/dashboard/settings" || location.pathname === "/dashboard/settings/";
 
   return (
     <div className="space-y-6 max-w-3xl mx-auto w-full min-w-0">
       <div className="flex items-center gap-3">
         {!isIndex && (
-          <Link to="/settings">
+          <Link to="/dashboard/settings">
             <Button variant="ghost" size="icon" className="h-8 w-8 rounded-lg">
               <ChevronLeft className="h-5 w-5" />
             </Button>

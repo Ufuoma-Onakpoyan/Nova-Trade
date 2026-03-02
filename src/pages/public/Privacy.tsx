@@ -49,7 +49,7 @@ export default function Privacy() {
         className="mt-8 text-center"
       >
         <Button asChild variant="outline" className="rounded-xl">
-          <Link to="/welcome">Back to home</Link>
+          <Link to="/">Back to home</Link>
         </Button>
       </motion.div>
       </div>

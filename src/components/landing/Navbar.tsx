@@ -24,7 +24,7 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 backdrop-blur-xl bg-background/70">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link to="/welcome" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <div className="relative h-8 w-8 rounded-lg bg-primary/20 flex items-center justify-center">
             <div className="h-4 w-4 rounded-sm bg-primary glow-button" />
           </div>

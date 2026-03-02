@@ -11,21 +11,21 @@ import {
 } from "@/components/ui/sheet";
 
 const navItems = [
-  { id: "home", label: "Dashboard", icon: LayoutDashboard, path: "/" },
-  { id: "terminal", label: "Terminal", icon: BarChart3, path: "/terminal" },
-  { id: "spot", label: "Spot", icon: ArrowLeftRight, path: "/spot" },
-  { id: "margin", label: "Margin", icon: TrendingUp, path: "/margin" },
-  { id: "copy", label: "Copy Trading", icon: Users, path: "/copy-trading" },
-  { id: "bot", label: "Bot Trading", icon: Bot, path: "/bot-trading" },
-  { id: "stocks", label: "Stocks", icon: TrendingUp, path: "/stocks" },
-  { id: "wallet", label: "Wallet", icon: Wallet, path: "/wallet" },
+  { id: "home", label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+  { id: "terminal", label: "Terminal", icon: BarChart3, path: "/dashboard/terminal" },
+  { id: "spot", label: "Spot", icon: ArrowLeftRight, path: "/dashboard/spot" },
+  { id: "margin", label: "Margin", icon: TrendingUp, path: "/dashboard/margin" },
+  { id: "copy", label: "Copy Trading", icon: Users, path: "/dashboard/copy-trading" },
+  { id: "bot", label: "Bot Trading", icon: Bot, path: "/dashboard/bot-trading" },
+  { id: "stocks", label: "Stocks", icon: TrendingUp, path: "/dashboard/stocks" },
+  { id: "wallet", label: "Wallet", icon: Wallet, path: "/dashboard/wallet" },
 ];
 
 const mobileMainNav = [
-  { id: "home", label: "Dashboard", icon: LayoutDashboard, path: "/" },
-  { id: "terminal", label: "Terminal", icon: BarChart3, path: "/terminal" },
-  { id: "spot", label: "Spot", icon: ArrowLeftRight, path: "/spot" },
-  { id: "wallet", label: "Wallet", icon: Wallet, path: "/wallet" },
+  { id: "home", label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+  { id: "terminal", label: "Terminal", icon: BarChart3, path: "/dashboard/terminal" },
+  { id: "spot", label: "Spot", icon: ArrowLeftRight, path: "/dashboard/spot" },
+  { id: "wallet", label: "Wallet", icon: Wallet, path: "/dashboard/wallet" },
 ];
 
 const getPageLabel = (path: string): string => {
@@ -93,7 +93,7 @@ const DashboardLayout = () => {
 
         {/* Bottom */}
         <div className="p-2 space-y-1 border-t border-border/50">
-          <Link to="/settings" className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors ${isActive("/settings") ? "bg-primary/10 text-primary border border-primary/20" : "text-muted-foreground hover:text-foreground hover:bg-muted/50"}`}>
+          <Link to="/dashboard/settings" className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors ${isActive("/dashboard/settings") ? "bg-primary/10 text-primary border border-primary/20" : "text-muted-foreground hover:text-foreground hover:bg-muted/50"}`}>
             <Settings className="h-5 w-5 shrink-0" />
             {!collapsed && <span>Settings</span>}
           </Link>
@@ -139,15 +139,15 @@ const DashboardLayout = () => {
 
           <div className="flex items-center gap-1 sm:gap-3 shrink-0">
             <ThemeToggle />
-            <Link to="/wallet" className="glass-card px-2 sm:px-3 py-1.5 rounded-lg flex items-center gap-2 hover:border-primary/30 transition-colors">
+            <Link to="/dashboard/wallet" className="glass-card px-2 sm:px-3 py-1.5 rounded-lg flex items-center gap-2 hover:border-primary/30 transition-colors">
               <Wallet className="h-4 w-4 text-primary" />
               <span className="text-xs sm:text-sm font-mono-num font-semibold hidden xs:inline">$124,567.89</span>
             </Link>
-            <Link to="/notifications" className="relative p-2 rounded-lg hover:bg-muted/50 transition-colors">
+            <Link to="/dashboard/notifications" className="relative p-2 rounded-lg hover:bg-muted/50 transition-colors">
               <Bell className="h-5 w-5 text-muted-foreground" />
               <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-primary animate-pulse-glow" />
             </Link>
-            <Link to="/settings" className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary hover:bg-primary/30 transition-colors">
+            <Link to="/dashboard/settings" className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary hover:bg-primary/30 transition-colors">
               JD
             </Link>
           </div>
@@ -219,12 +219,12 @@ const DashboardLayout = () => {
                 </SheetHeader>
                 <div className="mt-4 grid grid-cols-3 gap-3">
                   {[
-                    { icon: TrendingUp, label: "Stocks", path: "/stocks" },
-                    { icon: Users, label: "Copy Trade", path: "/copy-trading" },
-                    { icon: Bot, label: "Bot Trade", path: "/bot-trading" },
-                    { icon: TrendingUp, label: "Margin", path: "/margin" },
-                    { icon: Bell, label: "Notifications", path: "/notifications" },
-                    { icon: Settings, label: "Settings", path: "/settings" },
+                    { icon: TrendingUp, label: "Stocks", path: "/dashboard/stocks" },
+                    { icon: Users, label: "Copy Trade", path: "/dashboard/copy-trading" },
+                    { icon: Bot, label: "Bot Trade", path: "/dashboard/bot-trading" },
+                    { icon: TrendingUp, label: "Margin", path: "/dashboard/margin" },
+                    { icon: Bell, label: "Notifications", path: "/dashboard/notifications" },
+                    { icon: Settings, label: "Settings", path: "/dashboard/settings" },
                   ].map((item) => (
                     <Link
                       key={item.path}
