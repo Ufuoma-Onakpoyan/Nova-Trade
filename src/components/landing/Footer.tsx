@@ -63,7 +63,15 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-muted-foreground">© 2026 NovaTrade. All rights reserved.</p>
+          <div className="text-xs text-muted-foreground">
+            <p>© 2026 NovaTrade. All rights reserved.</p>
+            <p className="mt-1">
+              Created by{" "}
+              <a href="https://elevatewebandmarketing.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                Elevate Web and Marketing
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-4">
             {["Twitter", "Discord", "Telegram", "GitHub"].map((social) => (
               <a key={social} href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">
