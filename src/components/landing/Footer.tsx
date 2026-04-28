@@ -66,9 +66,9 @@ export function Footer() {
           <div className="text-xs text-muted-foreground">
             <p>© 2026 NovaTrade. All rights reserved.</p>
             <p className="mt-1">
-              Created by{" "}
+              Created by Ufuoma at{" "}
               <a href="https://elevatewebandmarketing.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                Elevate Web and Marketing
+                elevatewebandmarketing.com
               </a>
             </p>
           </div>
